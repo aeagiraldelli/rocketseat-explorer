@@ -1,0 +1,135 @@
+:root {
+  --color-dark-background: #2f2e41;
+  --color-accent: #00bfa6;
+  --color-text-body: #c2c2c2;
+  --colot-text-headings: #fff;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-bo;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: white;
+  background-color: var(--color-dark-background);
+  font-size: 1.6rem;
+  line-height: 1.75;
+  min-height: 100vh;
+  margin: 0;
+}
+
+a {
+  cursor: pointer;
+}
+
+.accent-color {
+  color: var(--color-accent);
+}
+
+/* Page */
+
+#page {
+  width: 1080px;
+  margin: 0 auto;
+  padding-top: 70px;
+}
+
+/* Nav */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/* Lists */
+
+.list {
+  list-style: none;
+}
+
+.list-inline {
+  display: flex;
+  gap: 64px;
+}
+
+.list .list__item,
+.list a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: "Jetbrains Mono", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.list a:hover {
+  font-weight: bold;
+}
+
+/* Decoration */
+
+#decoration {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+/* Main */
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px auto 170px;
+}
+
+.content {
+  width: 605px;
+}
+
+.content h2 {
+  font-size: 3.6rem;
+  font-family: "Jetbrains Mono", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.content p {
+  text-align: center;
+  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  color: var(--color-text-body);
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  font-family: "Jetbrains Mono", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 1.4rem;
+  gap: 27px;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+  font-weight: 500;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-accent);
+  width: 570px;
+}
