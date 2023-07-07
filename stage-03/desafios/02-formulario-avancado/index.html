@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avaliação de mentoria</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div id="page">
+      <header>
+        <h1 class="title">Avalie a Sua Mentoria</h1>
+        <p class="subtitle">Chegou a hora de avaliar o seu mentor. Bora lá?</p>
+        <img
+          class="title-img"
+          src="assets/images/thinking-baloon.png"
+          alt="Balão de pensamento com 5 estrelas dentro."
+        />
+      </header>
+      <div class="form-ribbon">
+        <h2 class="form-header">Informações Pessoais</h2>
+      </div>
+      <form action="">
+        <fieldset>
+          <div class="fieldset-group">
+            <div class="grid cols-2">
+              <div class="input-group">
+                <label class="input-label" for="user-name">Nome</label>
+                <input class="input-text" type="text" id="user-name" />
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="user-surname">Sobrenome</label>
+                <input class="input-text" type="text" id="user-surname" />
+              </div>
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="user-email"
+                >Email
+                <span class="muted muted-small"
+                  >(informe um e-mail válido)</span
+                ></label
+              >
+              <input class="input-email" type="email" id="user-email" />
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="fieldset-group">
+            <legend class="fieldset-legend">Informações do Mentor</legend>
+            <div class="input-group">
+              <label for="coaching-name" class="input-label"
+                >Selecione quem foi o seu mentor</label
+              >
+              <select class="input-select" id="coaching-name">
+                <option value="coaching1">Coaching 1</option>
+                <option value="coaching2">Coaching 2</option>
+                <option value="coaching3">Coaching 3</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="coach-feedback"
+                >Feedback sobre o mentor</label
+              >
+              <textarea class="input-textarea" id="coach-feedback"></textarea>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="coach-result" />
+              <label class="checkbox-label" for="coach-result"
+                >Todas as minhas dúvidas foram esclarecidas durante a
+                mentoria</label
+              >
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="fieldset-group">
+            <legend class="fieldset-legend">Agendando Próxima Mentoria</legend>
+            <div class="grid cols-2">
+              <div class="input-group">
+                <label class="input-label" for="next-date"
+                  >Data
+                  <span class="muted muted-small">(DD/MM/AAA)</span></label
+                >
+                <input class="input-date" type="date" id="next-date" />
+              </div>
+              <div class="grid cols-2">
+                <div class="input-group">
+                  <label class="input-label" for="next-start">Das</label>
+                  <input class="input-time" type="time" id="next-start" />
+                </div>
+                <div class="input-group">
+                  <label class="input-label" for="next-end">Até</label>
+                  <input class="input-time" type="time" id="next-end" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="fieldset-group">
+            <div class="btn-group">
+              <button class="btn btn-primary" type="submit">Salvar</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
