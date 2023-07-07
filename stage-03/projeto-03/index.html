@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novo Evento</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div id="page">
+      <header>
+        <h1>Crie e compartilhe seu evento.</h1>
+        <p>O primeiro passo, é preencher esse formulário de inscrição.</p>
+      </header>
+      <form id="event-form" action="#" method="get">
+        <fieldset>
+          <div class="fieldset-group">
+            <legend>Informações do Evento</legend>
+            <div class="line"></div>
+            <div class="input-group">
+              <label for="event-title"
+                >Título do evento
+                <span class="label-muted">(mínimo 8 caracteres)</span></label
+              >
+              <input
+                type="text"
+                name="event-title"
+                id="event-title"
+                required
+                minlength="8"
+              />
+            </div>
+            <div class="input-group">
+              <label for="link-title"
+                >Link do evento
+                <span class="label-muted">(comece com https://)</span></label
+              >
+              <input type="url" name="link-title" id="link-title" required />
+            </div>
+
+            <div class="input-group">
+              <label for="whatsapp-contact"
+                >Whatsapp para contato
+                <span class="label-muted">(somente números)</span></label
+              >
+              <input
+                type="number"
+                name="whatsapp-contact"
+                id="whatsapp-contact"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="info-extra">Informações extras</label>
+              <textarea name="info-extra" id="info-extra"></textarea>
+            </div>
+            <div class="input-group">
+              <label for="category">Categoria</label>
+              <select id="category">
+                <option value="">Tipo de Evento</option>
+                <option value="workshop">Workshop</option>
+                <option value="podcast">Podcast</option>
+                <option value="live">Live Stream</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="fieldset-group">
+            <legend>Privacidade</legend>
+            <div class="line"></div>
+            <div class="input-group">
+              <label for="admin-email"
+                >E-mail do administrador
+                <span class="label-muted"
+                  >(digite um e-mail válido)</span
+                ></label
+              >
+              <input
+                type="email"
+                name="admin-email"
+                id="admin-email"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="user-password"
+                >Senha de acesso para os participantes
+                <span class="label-muted">(mínimo de 8 caracteres)</span></label
+              >
+              <input
+                type="password"
+                name="user-password"
+                id="user-password"
+                minlength="8"
+                required
+              />
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" name="private-event" id="private-event" />
+              <label for="private-event">Evento privado</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div class="fieldset-group">
+            <legend>Dia e hora</legend>
+            <div class="line"></div>
+            <div class="group-inline">
+              <div class="input-group">
+                <label for="event-date">Data</label>
+                <input type="date" name="event-date" id="event-date" />
+              </div>
+              <div class="input-group">
+                <label for="event-hour-start">Das</label>
+                <input
+                  type="time"
+                  name="event-hour-start"
+                  id="event-hour-start"
+                />
+              </div>
+              <div class="input-group">
+                <label for="event-hour-end">Até</label>
+                <input type="time" name="event-hour-end" id="event-hour-end" />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <footer>
+        <button form="event-form" type="submit" class="btn btn-primary">
+          Salvar Evento
+        </button>
+      </footer>
+    </div>
+  </body>
+</html>
