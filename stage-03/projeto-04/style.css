@@ -1,0 +1,148 @@
+:root {
+  --color-background-light: #ece9fd;
+  --color-text-dark-accent: #7158ef;
+  --color-text-dark-gray: #0a0039a3;
+  --color-text-dark: #090039;
+  --color-text-light-accent: #7158ef;
+  --color-text-light-gray: #ffffff;
+  --color-text-light: #ffffff;
+}
+
+/*  */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* General */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Epilogue, sans-serif;
+  margin: 60px 23px;
+  background-color: var(--color-background-light);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    width: 1000px;
+  }
+}
+
+/* Text */
+
+.intro-text {
+  color: var(--color-text-dark-accent);
+  font-size: 1.6rem;
+  line-height: 2;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.title {
+  font-size: 4rem;
+  line-height: 1.2;
+  color: var(--color-text-dark);
+}
+
+.text-content {
+  font-size: 1.6rem;
+  line-height: 2;
+  color: var(--color-text-dark-gray);
+}
+
+.link {
+  font-size: 1.6rem;
+  line-height: 2;
+  color: var(--color-text-dark);
+}
+
+.link:visited {
+  color: var(--color-text-dark);
+}
+
+.text-hightlight {
+  color: var(--color-text-dark);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.number-highlight {
+  color: var(--color-text-dark);
+  font-size: 7.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* List */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 43px;
+}
+
+.list .list__item {
+  display: flex;
+  align-items: center;
+}
+
+.list__item .number-highlight {
+  width: 30px;
+  margin-right: 38px;
+}
+
+@media screen and (min-width: 700px) {
+  .list {
+    gap: 32px;
+    margin-top: 77px;
+  }
+}
+
+/* grid */
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+@media screen and (min-width: 700px) {
+  .cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 116px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cols-2 {
+    gap: 80px;
+  }
+}
+
+/* Groups */
+
+.group .link {
+  display: inline-block;
+  margin-top: 32px;
+}
