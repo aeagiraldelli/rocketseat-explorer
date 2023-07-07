@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div id="page">
+      <header>
+        <h1 class="title">Mentoria</h1>
+        <p class="subtitle">
+          Preencha o formulário abaixo para agendar a sua mentoria
+        </p>
+      </header>
+      <form action="">
+        <fieldset>
+          <div class="fieldset-group">
+            <legend class="fieldset-legend">Informações Pessoais</legend>
+            <div class="grid cols-2">
+              <div class="input-group">
+                <label class="input-label" for="user-name">Nome</label>
+                <input class="input-text" type="text" id="user-name" />
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="user-surname">Sobrenome</label>
+                <input class="input-text" type="text" id="user-surname" />
+              </div>
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="user-email"
+                >E-mail
+                <span class="muted muted-small"
+                  >(digite um email válido)</span
+                ></label
+              >
+              <input
+                class="input-email"
+                type="email"
+                id="user-email"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="user-password"
+                >Senha
+                <span class="muted muted-small"
+                  >(mínimo de 8 caracteres)</span
+                ></label
+              >
+              <input
+                class="input-password"
+                type="password"
+                id="user-password"
+                required
+              />
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="fieldset-group">
+            <legend class="fieldset-legend">Informações do Mentor</legend>
+            <div class="input-group">
+              <label class="input-label" for="coaching-name"
+                >Nome do seu mentor
+                <span class="muted muted-small"
+                  >(só o primeiro nome)</span
+                ></label
+              >
+              <input
+                class="input-text"
+                type="text"
+                id="coaching-name"
+                required
+              />
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="fieldset-group">
+            <legend class="fieldset-legend">Seus Horários Disponíveis</legend>
+            <h2 class="fieldset-heading">Primeira Mentoria</h2>
+            <div class="grid cols-2">
+              <div class="input-group">
+                <label class="input-label" for="first-coaching-date"
+                  >Data</label
+                >
+                <input
+                  class="input-date"
+                  type="date"
+                  id="first-coaching-date"
+                />
+              </div>
+              <div class="grid cols-2">
+                <div class="input-group">
+                  <label class="input-label" for="first-coaching-time-start"
+                    >Das</label
+                  >
+                  <input
+                    class="input-time"
+                    type="time"
+                    id="first-coaching-time-start"
+                  />
+                </div>
+                <div class="input-group">
+                  <label class="input-label" for="first-coaching-time-end"
+                    >Até</label
+                  >
+                  <input
+                    class="input-time"
+                    type="time"
+                    id="first-coaching-time-end"
+                  />
+                </div>
+              </div>
+            </div>
+            <h2 class="fieldset-heading">Segunda Mentoria</h2>
+            <div class="grid cols-2">
+              <div class="input-group">
+                <label class="input-label" for="second-coaching-date"
+                  >Data</label
+                >
+                <input
+                  class="input-date"
+                  type="date"
+                  id="second-coaching-date"
+                />
+              </div>
+              <div class="grid cols-2">
+                <div class="input-group">
+                  <label class="input-label" for="second-coaching-time-start"
+                    >Das</label
+                  >
+                  <input
+                    class="input-time"
+                    type="time"
+                    id="second-coaching-time-start"
+                  />
+                </div>
+                <div class="input-group">
+                  <label class="input-label" for="second-coaching-time-end"
+                    >Até</label
+                  >
+                  <input
+                    class="input-time"
+                    type="time"
+                    id="second-coaching-time-end"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <footer>
+        <button class="btn btn-primary" type="submit">Salvar</button>
+      </footer>
+    </div>
+  </body>
+</html>
