@@ -1,0 +1,183 @@
+:root {
+  --color-text: #a54328;
+  --screen-tablet-size: 768px;
+  --screen-tablet-size-large: 1024px;
+  --screen-laptop-size: 1440px;
+  --screen-desktop-4k: 2560px;
+  --color-background: #fbf6f5;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul li,
+ol li {
+  list-style-position: inside;
+}
+
+/* General */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Source Serif 4', sans-serif;
+  margin: 37px;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    margin: 80px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    margin: 140px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    max-width: 1440px;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  body {
+    margin-inline: auto;
+  }
+}
+
+main {
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 1024px) {
+  img {
+    width: 350px;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  section {
+    max-width: 700px;
+  }
+}
+
+/* Grid */
+
+.grid {
+  display: grid;
+  gap: 34px;
+}
+
+@media screen and (min-width: 768px) {
+  .cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+    align-items: flex-start;
+  }
+}
+
+/* Texts */
+
+.title {
+  font-size: 2.8rem;
+  margin-top: 0;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.text-content {
+  font-size: 1.4rem;
+  line-height: 1.7;
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .subtitle {
+    font-size: 2rem;
+  }
+
+  .text-content {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .title {
+    font-size: 5.6rem;
+  }
+
+  .subtitle {
+    font-size: 2.8rem;
+  }
+
+  .text-content {
+    font-size: 2.8rem;
+  }
+}
+
+/* Buttons */
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  padding: 8px 13px;
+}
+
+@media screen and (min-width: 1440px) {
+  .btn {
+    font-size: 2rem;
+    padding: 12px 20px;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .btn {
+    font-size: 2.8rem;
+    padding: 20px 30px;
+  }
+}
+
+.btn-primary {
+  font-weight: 500;
+  background-color: var(--color-text);
+  color: #fff;
+}
