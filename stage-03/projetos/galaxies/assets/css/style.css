@@ -1,0 +1,121 @@
+:root {
+  --color-background: #1e1e1e;
+  --color-card: #323238;
+  --color-text-body: #c4c4cc;
+  --color-text-heading: #e1e1e6;
+  --color-text-title: #02799d;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--color-background);
+  font-family: 'Mulish', sans-serif;
+  margin: auto;
+}
+
+/* Page */
+
+#page {
+  width: 100%;
+  max-width: 1218px;
+  margin: 33px auto;
+  padding: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  #page {
+    margin: 73px auto;
+    padding: 50;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  /* 4K */
+  #page {
+    max-width: 1720px;
+  }
+}
+
+/* Main */
+
+main {
+  margin-top: 62px;
+}
+
+/* Text */
+
+p {
+  letter-spacing: 1px;
+}
+
+.title {
+  color: var(--color-text-title);
+  font-size: 5.8rem;
+}
+
+.subtitle {
+  color: var(--color-text-heading);
+  font-size: 3.2rem;
+}
+
+/* grid */
+
+.grid {
+  display: grid;
+  gap: 60px;
+}
+
+@media screen and (min-width: 768px) {
+  .cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card */
+
+.card {
+  width: 100%;
+  background-color: var(--color-card);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card .card__content {
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card .card__title {
+  color: var(--color-text-heading);
+  font-size: 3.5rem;
+  font-weight: 900;
+}
+
+.card .card__body {
+  color: var(--color-text-body);
+  font-size: 1.9rem;
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+}
