@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess the Number</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="app">
+        <div class="heading">
+          <h1 class="title">Jogo da Adivinhação</h1>
+          <p class="subtitle">Adivinhe o número de 0 até 10</p>
+        </div>
+        <form action="">
+          <label class="hidden-label" for="input-guess">Palpite</label>
+          <input type="number" min="0" max="10" id="input-guess" value="0" />
+          <input
+            id="btn-guess"
+            class="btn btn-primary"
+            type="button"
+            value="Tentar"
+          />
+        </form>
+        <div>
+          <p id="error-message">Número errado. Tente mais uma vez.</p>
+        </div>
+      </div>
+      <div class="hide" id="result">
+        <h1 id="result-message" class="title">Acertou em 3 tentativas</h1>
+        <input
+          id="btn-try-again"
+          class="btn btn-primary btn-result"
+          type="button"
+          value="Jogar novamente"
+        />
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
