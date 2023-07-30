@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortune Cookie</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Dancing+Script&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="screen-1" class="">
+      <div class="card">
+        <div class="container">
+          <h2 class="title">Qual é a sua sorte de hoje?</h2>
+          <p class="subtitle">Clique no biscoito para abrir e descubra!</p>
+          <img id="cookie" class="btn" src="images/fortune-cookie.png" alt="" />
+        </div>
+      </div>
+    </section>
+    <section id="screen-2" class="hide">
+      <div class="card">
+        <div class="container">
+          <h2 class="title">Aqui está a sua sorte de hoje:</h2>
+          <div class="fortune-container">
+            <p id="fortune-message" class="fortune-message"></p>
+          </div>
+          <img src="images/opened-cookie.png" alt="" />
+          <div>
+            <input
+              id="btn-open-new-cookie"
+              class="btn btn-primary"
+              type="button"
+              value="Abrir outro biscoito"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
