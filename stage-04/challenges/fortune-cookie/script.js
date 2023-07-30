@@ -67,7 +67,12 @@ const screen1 = document.getElementById('screen-1');
 const screen2 = document.getElementById('screen-2');
 const fortune = document.getElementById('fortune-message');
 
-btnCookie.addEventListener('click', openCookie);
+btnCookie.addEventListener('click', () => {
+  const message = randomMessage();
+  fortune.innerText = message;
+  btnCookie.style.animationPlayState = 'running';
+});
+btnCookie.addEventListener('animationend', openCookie);
 
 btnOpenNewCookie.addEventListener('click', () => {
   screen2.classList.add('hide');
@@ -79,9 +84,7 @@ function randomMessage() {
 }
 
 function openCookie() {
-  const message = randomMessage();
-  fortune.innerText = message;
-
+  btnCookie.style.animationPlayState = 'paused';
   screen1.classList.add('hide');
   screen2.classList.remove('hide');
 }
