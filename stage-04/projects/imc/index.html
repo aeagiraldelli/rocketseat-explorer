@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cálculo IMC</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="alert-error" class="alert-error">
+      <h3>Digite somente números</h3>
+    </div>
+    <div id="app">
+      <main class="card">
+        <form action="">
+          <h2 class="title">Cálculo de IMC</h2>
+          <fieldset>
+            <!-- <legend class="title">Cálculo IMC</legend> -->
+            <div class="input-group">
+              <label class="label" for="input-weight">Peso (kg)</label>
+              <input
+                class="input-number"
+                type="text"
+                name="input-weight"
+                id="input-weight"
+                placeholder="80"
+              />
+            </div>
+            <div class="input-group">
+              <label class="label" for="input-height">Altura (m)</label>
+              <input
+                class="input-number"
+                type="text"
+                name="input-height"
+                id="input-height"
+                placeholder="1.70"
+              />
+            </div>
+          </fieldset>
+          <div>
+            <input
+              id="btn-calculate"
+              class="btn btn-primary"
+              type="button"
+              value="Calcular"
+            />
+          </div>
+        </form>
+      </main>
+    </div>
+    <div id="modal-layer" class="modal-layer">
+      <div class="modal card">
+        <button id="btn-close-modal" class="btn-close" type="button">
+          <label class="hidden-label" for="">Fechar</label>
+          <img src="images/close.svg" alt="" />
+        </button>
+        <h2 id="imc-result" class="title">Seu IMC é de 29</h2>
+      </div>
+    </div>
+  </body>
+</html>
