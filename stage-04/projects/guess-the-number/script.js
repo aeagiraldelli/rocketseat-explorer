@@ -9,10 +9,15 @@ let errorMessage = document.getElementById('error-message');
 function genRandomNumber() {
   return Math.round(Math.random() * 10);
 }
+let secretNumber = genRandomNumber();
+let attempts = 0;
 
 let timer = null;
-let attempts = 0;
-let secretNumber = genRandomNumber();
+function setTimer(timeout = 2000) {
+  timer = setTimeout(() => {
+    errorMessage.classList.add('hide');
+  }, timeout);
+}
 
 errorMessage.classList.add('hide');
 
@@ -28,13 +33,9 @@ btnGuess.onclick = () => {
     errorMessage.classList.remove('hide');
     if (timer !== null) {
       clearTimeout(timer);
-      timer = setTimeout(() => {
-        errorMessage.classList.add('hide');
-      }, 2000);
+      setTimer();
     } else {
-      timer = setTimeout(() => {
-        errorMessage.classList.add('hide');
-      }, 2000);
+      setTimer();
     }
   }
 };
