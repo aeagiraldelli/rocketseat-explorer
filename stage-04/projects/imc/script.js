@@ -30,7 +30,7 @@ function calcImc() {
 
     const imcVal = imc(Number(weight), Number(height)).toFixed(2);
 
-    imcResultMessage.innerText = `Seu IMC é de ${imcVal}`;
+    imcResultMessage.innerText = `Seu IMC é ${imcVal}`;
     modal.classList.add('open');
     alertError.classList.remove('open');
   } else {
