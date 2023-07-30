@@ -139,6 +139,7 @@ fieldset legend {
 .btn-primary {
   background-color: var(--color-bg-button);
   color: #fff;
+  font-weight: bold;
   transition: background-color 150ms;
 }
 
