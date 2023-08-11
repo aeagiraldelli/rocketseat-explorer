@@ -1,0 +1,179 @@
+:root {
+  --color-text-body: #303030;
+  --hue: 180;
+  --color-primary: hsl(var(--hue), 100%, 40%);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  color: var(--color-text-body);
+  font-weight: 400;
+  line-height: 1.75;
+  background-color: azure;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid dodgerblue;
+  box-shadow: 6px 5px 35px 5px rgba(30, 144, 255, 0.4);
+}
+
+thead {
+  font-size: 1.6rem;
+  background-color: dodgerblue;
+  color: #fff;
+}
+
+th {
+  padding: 10px 20px;
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: #d8d9da;
+}
+
+tbody td {
+  text-align: center;
+  font-size: 2rem;
+  padding: 15px 30px;
+}
+
+tbody td:first-of-type {
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text-body);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 600px;
+}
+
+.sr-only {
+  border: none;
+  clip: rect(0, 0, 0, 0);
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+
+  padding: 0;
+  height: 1px;
+  width: 1px;
+}
+
+.title {
+  font-size: 2.4rem;
+}
+
+.user-avatar {
+  width: 80px;
+  border-radius: 50%;
+}
+
+.user-data {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.username,
+.nickname {
+  text-decoration: none;
+}
+
+.username {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.nickname {
+  font-size: 1.3rem;
+}
+
+.nickname::before {
+  content: '@';
+}
+
+.btn-del {
+  background-color: transparent;
+  border: none;
+  color: red;
+  font-size: 4rem;
+  transition: all 250ms;
+}
+
+.btn-del:hover {
+  background-color: red;
+  color: #fff;
+}
+
+.btn-del:active {
+  background-color: rgb(165, 4, 4);
+}
+
+#input-search {
+  border: none;
+  border-radius: 3px 0 0 3px;
+  background-color: #dcdcdc;
+  padding: 15px 20px;
+  outline: none;
+  color: var(--color-text-body);
+  width: min(220px, 22rem);
+}
+
+#btn-search {
+  background-color: dodgerblue;
+  border: none;
+  border-radius: 0 3px 3px 0;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  transition: all 150ms;
+}
+
+#btn-search:hover {
+  background-color: rgb(13, 110, 206);
+}
+
+.input-group {
+  display: flex;
+}
+
+#app {
+  max-width: 700px;
+  padding: 20px;
+  margin: 0 auto;
+  overflow: hidden;
+}
