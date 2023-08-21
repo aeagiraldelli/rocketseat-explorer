@@ -3,7 +3,9 @@ import express from 'express';
 
 import { router } from './routes/routes.js';
 import { AppError } from './utils/AppError.js';
-import { databaseConnection } from './database/sqlite/database.js';
+import { migrate } from './database/sqlite/migrations/migrate.js';
+
+migrate();
 
 const PORT = 3000;
 const app = express();
@@ -11,8 +13,6 @@ const app = express();
 app.use(express.json());
 app.use(router);
 app.use(errorHandling);
-
-databaseConnection();
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
