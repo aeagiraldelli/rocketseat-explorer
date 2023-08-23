@@ -1,5 +1,6 @@
 import { AppError } from '../utils/AppError.js';
 import { databaseConnection } from '../database/sqlite/database.js';
+import bcrypt from 'bcryptjs';
 
 export class UserController {
   async create(req, res) {
@@ -29,13 +30,64 @@ export class UserController {
                  (name, email, password)
                  VALUES
                  (?, ?, ?)`;
+    const hashedPassword = await bcrypt.hash(password, 8);
 
     try {
-      await db.run(cmd, [name, email, password]);
+      await db.run(cmd, [name, email, hashedPassword]);
     } catch (error) {
       throw new AppError('Erro ao cadastrar novo usuário.', 500);
     }
 
     return res.status(201).json({});
+  }
+
+  async update(req, res) {
+    const { name, email, password, oldPassword } = req.body;
+    const { id } = req.params;
+
+    const db = await databaseConnection();
+    const user = await db.get('SELECT * FROM users WHERE id = (?)', [id]);
+
+    if (!user) {
+      throw new AppError('Usuário não encontrado!');
+    }
+
+    const registeredUser = await db.get(
+      'SELECT * FROM users WHERE email = (?)',
+      [email]
+    );
+
+    if (registeredUser && registeredUser.id !== user.id) {
+      throw new AppError('Email já está em uso.');
+    }
+
+    user.email = email ?? user.email;
+    user.name = name ?? user.name;
+
+    if (password && !oldPassword) {
+      throw new AppError(
+        'Você precisa informar a senha antiga para definir uma nova senha.'
+      );
+    }
+
+    if (password && oldPassword) {
+      const passOk = await bcrypt.compare(oldPassword, user.password);
+      if (!passOk) {
+        throw new AppError('Senha antiga inválida.');
+      }
+
+      user.password = await bcrypt.hash(password, 8);
+    }
+
+    const cmd = `
+        UPDATE users 
+        SET
+          name = ?,
+          email = ?,
+          password = ?,
+          updated_at = DATETIME('now')
+        WHERE id = ?`;
+    await db.run(cmd, [user.name, user.email, user.password, id]);
+    res.status(200).json();
   }
 }
