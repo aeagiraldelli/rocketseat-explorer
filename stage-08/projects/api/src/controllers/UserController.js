@@ -88,6 +88,7 @@ export class UserController {
           updated_at = DATETIME('now')
         WHERE id = ?`;
     await db.run(cmd, [user.name, user.email, user.password, id]);
+    
     res.status(200).json();
   }
 }
