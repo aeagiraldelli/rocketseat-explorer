@@ -1,5 +1,3 @@
-import knex from 'knex';
-
 export const up = (knex) =>
   knex.schema.createTable('notes', (table) => {
     table.increments('id');
