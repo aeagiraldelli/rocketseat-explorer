@@ -1,4 +1,5 @@
 import { connection as knex } from '../database/knex/index.js';
+import { AppError } from '../utils/AppError.js';
 
 export class NotesController {
   async create(req, res) {
@@ -47,5 +48,46 @@ export class NotesController {
       tags,
       links,
     });
+  }
+
+  async delete(req, res) {
+    const { id } = req.params;
+    await knex('notes').where({ id }).delete();
+    res.json();
+  }
+
+  async list(req, res) {
+    const { user_id, title, tags } = req.query;
+
+    let notes;
+
+    if (user_id) {
+      if (tags) {
+        const tagList = tags.split(',').map((tag) => tag.trim());
+        notes = await knex('tags')
+          .select(['notes.id', 'notes.title', 'notes.user_id'])
+          .where('notes.user_id', user_id)
+          .whereLike('notes.title', `%${title ?? ''}%`)
+          .whereIn('name', tagList)
+          .innerJoin('notes', 'notes.id', 'tags.note_id');
+      } else {
+        notes = await knex('notes')
+          .where({ user_id })
+          .whereLike('title', `%${title ?? ''}%`);
+      }
+    } else {
+      throw new AppError('User not found.');
+    }
+
+    const userTags = await knex('tags').where({ user_id });
+    const notesWithTags = notes.map((note) => {
+      const noteTags = userTags.filter((tag) => tag.note_id == note.id);
+      return {
+        ...note,
+        tags: noteTags,
+      };
+    });
+
+    return res.json(notesWithTags);
   }
 }
