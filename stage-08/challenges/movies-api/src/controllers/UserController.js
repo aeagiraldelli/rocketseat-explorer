@@ -36,4 +36,53 @@ export class UserController {
 
     return res.status(201).json();
   }
+
+  /** @type {import('express').RequestHandler} */
+  async update(req, res) {
+    const { id } = req.params;
+    const { name, email, password, oldPassword } = req.body;
+
+    if (!id) {
+      throw new AppError('ID do usuário não informado.');
+    }
+
+    const user = await db('users').where({ id }).first();
+    if (!user) {
+      throw new AppError('Usuário não encontrado.');
+    }
+
+    if (email) {
+      const registeredUser = await db('users').where({ email }).first();
+      if (registeredUser && registeredUser.id !== user.id) {
+        throw new AppError('E-mail já está sendo utilizado por outro usuário.');
+      }
+    }
+
+    user.email = email ?? user.email;
+    user.name = name ?? user.name;
+
+    if (password && !oldPassword) {
+      throw new AppError(
+        'Você precisa informar a senha antiga para poder definir uma nova senha'
+      );
+    }
+
+    if (password && oldPassword) {
+      const passOk = await bcrypt.compare(password, oldPassword);
+      if (!passOk) {
+        throw new AppError('Senha antiga inválida');
+      }
+
+      user.password = await bcrypt.hash(password, 8);
+    }
+
+    await db('users').where({ id }).update({
+      name: user.name,
+      email: user.email,
+      password: user.password,
+      updated_at: db.fn.now(),
+    });
+
+    return res.status(200).json();
+  }
 }
