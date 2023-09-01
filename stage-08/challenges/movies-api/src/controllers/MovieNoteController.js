@@ -41,4 +41,24 @@ export class MovieNotesController {
 
     return res.status(200).json();
   }
+
+  /** @type {import('express').RequestHandler} */
+  async show(req, res) {
+    const { id } = req.params;
+    if (!id) {
+      throw new AppError('ID da nota não informado.');
+    }
+
+    const note = await db('movie_notes').where({ id }).first();
+    if (!note) {
+      throw new AppError('Nota do filme não encontrada.');
+    }
+
+    const tags = await db('movie_tags').where({ note_id: id });
+
+    res.status(200).json({
+      ...note,
+      tags,
+    });
+  }
 }
