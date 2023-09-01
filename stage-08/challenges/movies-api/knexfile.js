@@ -10,9 +10,6 @@ export default {
     connection: {
       filename: path.resolve(__dirname, 'src', 'database', 'db.sqlite'),
     },
-    pool: {
-      afterCreate: (conn, db) => conn.run('PRAGMA foreign_keys = ON', db),
-    },
     useNullAsDefault: true,
     migrations: {
       directory: path.resolve(
