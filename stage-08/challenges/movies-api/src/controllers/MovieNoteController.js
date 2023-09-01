@@ -61,4 +61,29 @@ export class MovieNotesController {
       tags,
     });
   }
+
+  /** @type {import('express').RequestHandler} */
+  async list(req, res) {
+    const { user_id } = req.query;
+
+    if (!user_id) {
+      throw new AppError('ID do usuário não informado.');
+    }
+
+    const notes = await db('movie_notes').where({ user_id });
+
+    const fullNotes = await Promise.all(
+      notes.map(async (note) => {
+        const tags = await db('movie_tags').where({ note_id: note.id });
+        console.log('note:', note, 'tags:', tags);
+        return {
+          ...note,
+          tags,
+        };
+      })
+    );
+    console.log('fullNotes:', fullNotes);
+
+    return res.status(200).json(fullNotes);
+  }
 }
