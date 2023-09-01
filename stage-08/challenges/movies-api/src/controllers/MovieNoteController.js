@@ -86,4 +86,15 @@ export class MovieNotesController {
 
     return res.status(200).json(fullNotes);
   }
+
+  /** @type {import('express').RequestHandler} */
+  async delete(req, res) {
+    const { note_id } = req.params;
+    if (!note_id) {
+      throw new AppError('ID da anotação é obrigatório.');
+    }
+
+    await db('movie_notes').where({ id: note_id }).delete();
+    return res.status(200).json();
+  }
 }
