@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Temporizador minimalista estilo pomodoro para ajudar você a gerenciar o seu tempo de atividades." />
+
+  <title>Focus Timer</title>
+
+  <link rel="shortcut icon" href="favicon.svg" type="image/x-svg" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script type="module" src="src/main.js" defer></script>
+</head>
+
+<body>
+  <div id="app">
+    <button id="toggle-theme" class="btn">
+      <span class="sr-only">Ativar/desativar modo escuro.</span>
+      <i class="ph-bold ph-sun"></i>
+      <i class="ph-bold ph-moon"></i>
+    </button>
+    <section id="timer" class="flex">
+      <span id="minutes">00</span>
+      <span>:</span>
+      <span id="seconds">00</span>
+    </section>
+    <section id="controls" class="flex gap16">
+      <button data-action="actionPlay" class="ph ph-play-circle btn btn-primary">
+        <span class="sr-only">Play</span>
+      </button>
+      <button data-action="actionPause" class="ph ph-pause-circle btn btn-primary">
+        <span class="sr-only">Pause</span>
+      </button>
+      <button data-action="actionStop" class="ph ph-stop-circle btn btn-secondary">
+        <span class="sr-only">Stop</span>
+      </button>
+      <button data-action="actionTimer" class="ph ph-timer btn btn-secondary">
+        <span class="sr-only">Clock</span>
+      </button>
+      <button data-action="actionMusicOn" class="ph ph-speaker-none btn btn-secondary">
+        <span class="sr-only">Music Off</span>
+      </button>
+      <button data-action="actionMusicOff" class="ph ph-speaker-high btn btn-primary">
+        <span class="sr-only">Music On</span>
+      </button>
+      <button data-action="actionAddTime" class="ph ph-plus btn btn-primary">
+        <span class="sr-only">Add 5 minutes</span>
+      </button>
+      <button data-action="actionMinusTime" class="ph ph-minus btn btn-primary">
+        <span class="sr-only">Subtract 5 minutes</span>
+      </button>
+    </section>
+  </div>
+</body>
+
+</html>
