@@ -23,37 +23,59 @@
       <i class="ph-bold ph-sun"></i>
       <i class="ph-bold ph-moon"></i>
     </button>
-    <section id="timer" class="flex">
-      <span id="minutes">00</span>
-      <span>:</span>
-      <span id="seconds">00</span>
-    </section>
-    <section id="controls" class="flex gap16">
-      <button data-action="actionPlay" class="ph ph-play-circle btn btn-primary">
-        <span class="sr-only">Play</span>
-      </button>
-      <button data-action="actionPause" class="ph ph-pause-circle btn btn-primary">
-        <span class="sr-only">Pause</span>
-      </button>
-      <button data-action="actionStop" class="ph ph-stop-circle btn btn-secondary">
-        <span class="sr-only">Stop</span>
-      </button>
-      <button data-action="actionTimer" class="ph ph-timer btn btn-secondary">
-        <span class="sr-only">Clock</span>
-      </button>
-      <button data-action="actionMusicOn" class="ph ph-speaker-none btn btn-secondary">
-        <span class="sr-only">Music Off</span>
-      </button>
-      <button data-action="actionMusicOff" class="ph ph-speaker-high btn btn-primary">
-        <span class="sr-only">Music On</span>
-      </button>
-      <button data-action="actionAddTime" class="ph ph-plus btn btn-primary">
-        <span class="sr-only">Add 5 minutes</span>
-      </button>
-      <button data-action="actionMinusTime" class="ph ph-minus btn btn-primary">
-        <span class="sr-only">Subtract 5 minutes</span>
-      </button>
-    </section>
+    <div class="focus-timer-container">
+      <div class="focus-timer">
+        <section id="timer" class="flex">
+          <span id="minutes">00</span>
+          <span>:</span>
+          <span id="seconds">00</span>
+        </section>
+        <section id="controls" class="flex gap16">
+          <button data-action="actionPlay" class="ph ph-play-circle btn btn-primary">
+            <span class="sr-only">Play</span>
+          </button>
+          <button data-action="actionPause" class="ph ph-pause-circle btn btn-primary">
+            <span class="sr-only">Pause</span>
+          </button>
+          <button data-action="actionStop" class="ph ph-stop-circle btn btn-secondary">
+            <span class="sr-only">Stop</span>
+          </button>
+          <button data-action="actionTimer" class="ph ph-timer btn btn-secondary">
+            <span class="sr-only">Clock</span>
+          </button>
+          <button data-action="actionMusicOn" class="ph ph-speaker-none btn btn-secondary">
+            <span class="sr-only">Music Off</span>
+          </button>
+          <button data-action="actionMusicOff" class="ph ph-speaker-high btn btn-primary">
+            <span class="sr-only">Music On</span>
+          </button>
+          <button data-action="actionAddTime" class="ph ph-plus btn btn-primary">
+            <span class="sr-only">Add 5 minutes</span>
+          </button>
+          <button data-action="actionMinusTime" class="ph ph-minus btn btn-primary">
+            <span class="sr-only">Subtract 5 minutes</span>
+          </button>
+        </section>
+      </div>
+      <div id="bg-controls" class="background-controls-container">
+        <div class="background-controls">
+          <button id="btn-play-forest" data-action="actionPlayForestBackground" class="ph ph-tree-evergreen btn btn-card">
+            <span class="sr-only">Play Forest Background</span>
+          </button>
+          <button id="btn-play-rain" data-action="actionPlayRainBackground" class="ph ph-cloud-rain btn btn-card">
+            <span class="sr-only">Play Rain Background</span>
+          </button>
+        </div>
+        <div class="background-controls">
+          <button id="btn-play-cafe" data-action="actionPlayCafeBackground" class="ph ph-coffee btn btn-card">
+            <span class="sr-only">Play Cafe Background</span>
+          </button>
+          <button id="btn-play-fireplace" data-action="actionPlayFireplaceBackground" class="ph ph-fire btn btn-card">
+            <span class="sr-only">Play Fireplace Background</span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 

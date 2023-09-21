@@ -5,7 +5,7 @@
   --color-primary: hsl(var(--hue), 100%, 60%);
   --color-secondary: hsl(var(--hue), 40%, 98%);
   --color-bg-controls: hsl(var(--hue), 0%, 14%);
-  --color-dropshadow: hsl(var(--hue), 95%, 50%);
+  --color-dropshadow: hsl(var(--hue), 0, 0);
 }
 
 *,
@@ -27,7 +27,6 @@ html {
 html.light {
   --color-text: hsl(var(--hue), 5%, 7%);
   --color-bg: hsl(var(--hue), 40%, 98%);
-  /* --color-primary: hsla(240, 100%, 50%, 0.596); */
   --color-primary: #ffeebb;
   --color-secondary: hsl(var(--hue), 40%, 98%);
   --color-bg-controls: hsl(var(--hue), 80%, 50%);
@@ -115,6 +114,30 @@ button {
   text-shadow: 4px 4px 50px var(--color-dropshadow);
 }
 
+.focus-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.focus-timer-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.background-controls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.background-controls {
+  display: flex;
+  gap: 30px;
+}
+
 /* Controls */
 
 #controls {
@@ -131,6 +154,7 @@ button {
   outline: none;
   cursor: pointer;
   font-size: 6.4rem;
+  transition: all 150ms;
 }
 
 .btn-primary {
@@ -138,6 +162,14 @@ button {
   border-radius: 100%;
   background-color: transparent;
   box-shadow: 0 0px 10px 0;
+}
+
+.btn-card {
+  color: var(--color-bg-buttons);
+  border-radius: 10px;
+  background-color: transparent;
+  box-shadow: 0 0px 10px 0;
+  padding: 30px;
 }
 
 .btn-secondary {
@@ -148,13 +180,18 @@ button {
 }
 
 .btn-primary:hover,
-.btn-secondary:hover {
-  transform: scale(1.2);
+.btn-secondary:hover,
+.btn-card:hover {
+  transform: scale(1.1);
 }
 
 .btn-primary,
 .btn-secondary {
   transition: transform 150ms;
+}
+
+.btn-play-active {
+  background-color: var(--color-primary);
 }
 
 .running .ph-play-circle,
