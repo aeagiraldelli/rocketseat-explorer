@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { UserController } from '../controllers/UserController.js';
+import { ensureAuthenticaded } from '../middlewares/ensureAuthenticaded.js';
 
 export const userRoutes = Router();
-
 const userController = new UserController();
 
 userRoutes.get('/', (req, res) => {
@@ -11,4 +11,4 @@ userRoutes.get('/', (req, res) => {
 });
 
 userRoutes.post('/', userController.create);
-userRoutes.put('/:id', userController.update);
+userRoutes.put('/', ensureAuthenticaded, userController.update);

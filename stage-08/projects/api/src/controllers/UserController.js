@@ -3,6 +3,7 @@ import { databaseConnection } from '../database/sqlite/database.js';
 import bcrypt from 'bcryptjs';
 
 export class UserController {
+  /** @type {import('express').RequestHandler} */
   async create(req, res) {
     const { name, email, password } = req.body;
 
@@ -41,21 +42,19 @@ export class UserController {
     return res.status(201).json({});
   }
 
+  /** @type {import('express').RequestHandler} */
   async update(req, res) {
     const { name, email, password, oldPassword } = req.body;
-    const { id } = req.params;
+    const user_id = req.user.id;
 
     const db = await databaseConnection();
-    const user = await db.get('SELECT * FROM users WHERE id = (?)', [id]);
+    const user = await db.get('SELECT * FROM users WHERE id = (?)', [user_id]);
 
     if (!user) {
       throw new AppError('Usuário não encontrado!');
     }
 
-    const registeredUser = await db.get(
-      'SELECT * FROM users WHERE email = (?)',
-      [email]
-    );
+    const registeredUser = await db.get('SELECT * FROM users WHERE email = (?)', [email]);
 
     if (registeredUser && registeredUser.id !== user.id) {
       throw new AppError('Email já está em uso.');
@@ -65,9 +64,7 @@ export class UserController {
     user.name = name ?? user.name;
 
     if (password && !oldPassword) {
-      throw new AppError(
-        'Você precisa informar a senha antiga para definir uma nova senha.'
-      );
+      throw new AppError('Você precisa informar a senha antiga para definir uma nova senha.');
     }
 
     if (password && oldPassword) {
@@ -87,8 +84,8 @@ export class UserController {
           password = ?,
           updated_at = DATETIME('now')
         WHERE id = ?`;
-    await db.run(cmd, [user.name, user.email, user.password, id]);
-    
+    await db.run(cmd, [user.name, user.email, user.password, user_id]);
+
     res.status(200).json();
   }
 }

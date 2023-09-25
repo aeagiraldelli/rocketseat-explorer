@@ -2,9 +2,10 @@ import { connection as knex } from '../database/knex/index.js';
 import { AppError } from '../utils/AppError.js';
 
 export class NotesController {
+  /** @type {import('express').RequestHandler} */
   async create(req, res) {
     const { title, description, tags, links } = req.body;
-    const { user_id } = req.params;
+    const user_id = req.user.id;
 
     const [note_id] = await knex('notes').insert({
       title,
@@ -39,9 +40,7 @@ export class NotesController {
 
     const note = await knex('notes').where({ id }).first();
     const tags = await knex('tags').where({ note_id: id }).orderBy('name');
-    const links = await knex('links')
-      .where({ note_id: id })
-      .orderBy('created_at');
+    const links = await knex('links').where({ note_id: id }).orderBy('created_at');
 
     res.status(200).json({
       ...note,
@@ -56,8 +55,10 @@ export class NotesController {
     res.json();
   }
 
+  /** @type {import('express').RequestHandler} */
   async list(req, res) {
-    const { user_id, title, tags } = req.query;
+    const { title, tags } = req.query;
+    const user_id = req.user.id;
 
     let notes;
 
