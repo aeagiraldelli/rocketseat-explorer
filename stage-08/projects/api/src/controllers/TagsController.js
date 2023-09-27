@@ -1,5 +1,4 @@
 import { connection as knex } from '../database/knex/index.js';
-import { AppError } from '../utils/AppError.js';
 
 export class TagsController {
   /** @type {import('express').RequestHandler} */
