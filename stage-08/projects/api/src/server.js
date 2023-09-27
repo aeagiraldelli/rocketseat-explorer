@@ -1,5 +1,6 @@
 import 'express-async-errors';
 import express from 'express';
+import cors from 'cors';
 
 import { routes } from './routes/routes.js';
 import { AppError } from './utils/AppError.js';
@@ -11,6 +12,7 @@ migrate();
 const PORT = 3000;
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use('/files', express.static(UPLOAD_FOLDER));
 app.use(routes);
