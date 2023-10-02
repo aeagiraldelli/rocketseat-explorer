@@ -13,24 +13,29 @@ export class NotesController {
       user_id,
     });
 
-    const linksToInsert = links.map((link) => {
-      return {
-        note_id,
-        url: link,
-      };
-    });
+    if (links) {
+      const linksToInsert = links.map((link) => {
+        return {
+          note_id,
+          url: link,
+        };
+      });
 
-    await knex('links').insert(linksToInsert);
+      await knex('links').insert(linksToInsert);
+    }
 
-    const tagsToInsert = tags.map((name) => {
-      return {
-        note_id,
-        name,
-        user_id,
-      };
-    });
 
-    await knex('tags').insert(tagsToInsert);
+    if (tags) {
+      const tagsToInsert = tags.map((name) => {
+        return {
+          note_id,
+          name,
+          user_id,
+        };
+      });
+
+      await knex('tags').insert(tagsToInsert);
+    }
 
     res.status(201).json();
   }
