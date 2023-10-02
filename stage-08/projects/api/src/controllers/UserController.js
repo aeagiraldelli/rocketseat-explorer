@@ -86,6 +86,8 @@ export class UserController {
         WHERE id = ?`;
     await db.run(cmd, [user.name, user.email, user.password, user_id]);
 
-    res.status(200).json();
+    delete user.password;
+
+    res.status(200).json({ user });
   }
 }
