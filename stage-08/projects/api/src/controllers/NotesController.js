@@ -13,7 +13,7 @@ export class NotesController {
       user_id,
     });
 
-    if (links) {
+    if (links && links.length > 0) {
       const linksToInsert = links.map((link) => {
         return {
           note_id,
@@ -24,8 +24,7 @@ export class NotesController {
       await knex('links').insert(linksToInsert);
     }
 
-
-    if (tags) {
+    if (tags && tags.length > 0) {
       const tagsToInsert = tags.map((name) => {
         return {
           note_id,
@@ -75,7 +74,8 @@ export class NotesController {
           .where('notes.user_id', user_id)
           .whereLike('notes.title', `%${title ?? ''}%`)
           .whereIn('name', tagList)
-          .innerJoin('notes', 'notes.id', 'tags.note_id');
+          .innerJoin('notes', 'notes.id', 'tags.note_id')
+          .groupBy('notes.id');
       } else {
         notes = await knex('notes')
           .where({ user_id })
