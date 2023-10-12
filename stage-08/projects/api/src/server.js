@@ -1,6 +1,7 @@
+import 'dotenv/config.js'
+import cors from 'cors';
 import 'express-async-errors';
 import express from 'express';
-import cors from 'cors';
 
 import { routes } from './routes/routes.js';
 import { AppError } from './utils/AppError.js';
@@ -9,7 +10,7 @@ import { UPLOAD_FOLDER } from './configs/upload.js';
 
 migrate();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3333;
 const app = express();
 
 app.use(cors());
